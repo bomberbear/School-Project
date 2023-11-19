@@ -1,14 +1,18 @@
-version: '3.9'
+version: '3.8'
 services:
   db:
-    image: mariadb:10.5.8-focal
-    volumes:
-      - ./db/_data:/docker-entrypoint-initdb.d
-      - ./db/db:/var/lib/mysql
-    ports:
-      - 3316:3306
+    container_name: Automated_Labeling_System
+    image: mariadb:latest
     environment:
       MYSQL_DATABASE: "customers"
       MYSQL_PASSWORD: "password"
       MYSQL_ROOT_PASSWORD: "rootpassword"
       MYSQL_USER: "genericuser"
+    volumes:
+      - ./db/_data:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10

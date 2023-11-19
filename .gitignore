@@ -1,0 +1,10 @@
+*.pyc
+.vscode/launch.json
+.vscode/tasks.json.old
+.idea/workspace.xml
+.idea/AutomatedLabelingSystem.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+data/*.pdf
